@@ -33,12 +33,28 @@ verify:jdk17:
   extends:
     - .verify
 
-deploy_eb:
+deploy_to_test_env_aws_eb:
+  image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
+  stage: deploy
+  environment:
+    name: test
+    url: "http://testkoopa.us-east-2.elasticbeanstalk.com/"
+  only:
+    - main
+  script:
+    - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+    - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+    - aws configure set region $AWS_DEFAULT_REGION
+    - aws elasticbeanstalk create-application-version --application-name "Test Koopa" --version-label "$CI_COMMIT_REF_NAME-$CI_PIPELINE_ID"
+    - aws elasticbeanstalk update-environment --application-name "Test Koopa" --environment-name "TestKoopa-env" --version-label "$CI_COMMIT_REF_NAME-$CI_PIPELINE_ID"
+
+deploy_to_prod_env_aws_eb:
   image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
   stage: deploy
   environment:
     name: production
     url: "http://koopa.us-east-2.elasticbeanstalk.com/"
+  when: manual
   only:
     - main
   script:
