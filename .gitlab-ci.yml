@@ -21,8 +21,6 @@ variables:
     -Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository
     -Dorg.slf4j.simpleLogger.showDateTime=true
     -Djava.awt.headless=true
-  PROD_APPNAME: 'Project Koopa'
-  PROD_ENVNAME: 'ProjectKoopa-env'
   PROD_LABEL: '$CI_COMMIT_REF_NAME-$CI_PIPELINE_ID'
 
   # As of Maven 3.3.0 instead of this you MAY define these options in `.mvn/maven.config` so the same config is used
@@ -82,6 +80,6 @@ deploy_eb:
     - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
     - aws configure set region $AWS_DEFAULT_REGION
     - aws elasticbeanstalk create-application-version --application-name $PROD_APPNAME --version-label $PROD_LABEL
-    - aws elasticbeanstalk update-environment --application-name PROD_APPNAME --environment-name $PROD_ENVNAME --version-label $PROD_LABEL
+    - aws elasticbeanstalk update-environment --application-name $PROD_APPNAME --environment-name $PROD_ENVNAME --version-label $PROD_LABEL
 
 
