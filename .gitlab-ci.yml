@@ -29,6 +29,7 @@ cache:
 .verify:
   stage: build_and_test
   script:
+    - 'cd web'
     - 'mvn $MAVEN_CLI_OPTS verify'
 
 verify:jdk17:
