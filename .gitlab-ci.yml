@@ -45,7 +45,7 @@ deploy_eb:
     - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
     - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
     - aws configure set region $AWS_DEFAULT_REGION
-    - aws elasticbeanstalk create-application-version --application-name "Project Koopa" --version-label "test 123"
-    - aws elasticbeanstalk update-environment --application-name "Project Koopa" --environment-name "ProjectKoopa-env" --version-label "test 123"
+    - aws elasticbeanstalk create-application-version --application-name "Project Koopa" --version-label "test 1234"
+    - aws elasticbeanstalk update-environment --application-name "Project Koopa" --environment-name "ProjectKoopa-env" --version-label "test 1234"
 
 
