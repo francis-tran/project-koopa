@@ -26,14 +26,14 @@ cache:
   paths:
     - .m2/repository
 
-verify:
+build_and_test:
   stage: build_and_test
   script:
     - 'cd web'
     - 'mvn $MAVEN_CLI_OPTS verify'
   artifacts:
     paths:
-      - target/
+      - web/target/
 
 deploy_to_test_env_aws_eb:
   image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
@@ -45,7 +45,7 @@ deploy_to_test_env_aws_eb:
     - main
   artifacts:
     paths:
-      - target/
+      - web/target/
   script:
     - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
     - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
@@ -63,7 +63,7 @@ deploy_to_prod_env_aws_eb:
     - main
   artifacts:
     paths:
-      - target/
+      - web/target/
   script:
     - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
     - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
