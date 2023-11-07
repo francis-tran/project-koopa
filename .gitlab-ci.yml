@@ -31,9 +31,10 @@ build_and_test:
   script:
     - 'cd web'
     - 'mvn $MAVEN_CLI_OPTS verify'
+    - 'jar -cvf prod_app.war'
   artifacts:
     paths:
-      - web/target/*.jar
+      - web/target/*.war
 
 deploy_to_test_env_aws_eb:
   image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
@@ -45,7 +46,7 @@ deploy_to_test_env_aws_eb:
     - main
   artifacts:
     paths:
-      - web/target/*.jar
+      - web/target/*.war
   script:
     - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
     - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
@@ -63,12 +64,12 @@ deploy_to_prod_env_aws_eb:
     - main
   artifacts:
     paths:
-      - web/target/*.jar
+      - web/target/*.war
   script:
     - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
     - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
     - aws configure set region $AWS_DEFAULT_REGION
-    - aws elasticbeanstalk create-application-version --application-name "Project Koopa" --version-label "$CI_COMMIT_REF_NAME-$CI_PIPELINE_ID"
+    - aws elasticbeanstalk create-application-version --application-name "Project Koopa" --version-label "$CI_COMMIT_REF_NAME-$CI_PIPELINE_ID" --source-bundle S3Bucket=$S3BUCKET,S3Key=$PROD_S3KEY
     - aws elasticbeanstalk update-environment --application-name "Project Koopa" --environment-name "ProjectKoopa-env-3" --version-label "$CI_COMMIT_REF_NAME-$CI_PIPELINE_ID"
 
 
