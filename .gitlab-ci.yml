@@ -29,7 +29,11 @@ cache:
 .verify:
   stage: build_and_test
   script:
-    - 'mvn verify'
+    - 'mvn $MAVEN_CLI_OPTS verify'
+
+verify:jdk17:
+  extends:
+    - .verify
 
 deploy_to_test_env_aws_eb:
   image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
