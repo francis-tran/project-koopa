@@ -46,6 +46,6 @@ deploy_eb:
     - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
     - aws configure set region $AWS_DEFAULT_REGION
     - aws elasticbeanstalk create-application-version --application-name "Project Koopa" --version-label "$CI_COMMIT_REF_NAME-$CI_PIPELINE_ID"
-    - aws elasticbeanstalk update-environment --application-name "Project Koopa" --environment-name "ProjectKoopa-env" --version-label "$CI_COMMIT_REF_NAME-$CI_PIPELINE_ID"
+    - aws elasticbeanstalk update-environment --application-name "Project Koopa" --environment-name "ProjectKoopa-env-3" --version-label "$CI_COMMIT_REF_NAME-$CI_PIPELINE_ID"
 
 
