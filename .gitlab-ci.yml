@@ -73,5 +73,5 @@ deploy:
   stage: deploy
   image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
   script:
-  - aws create-deployment project-koopa-production
+  - aws create-deployment
   environment: production
