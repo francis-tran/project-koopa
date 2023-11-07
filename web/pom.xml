@@ -15,7 +15,8 @@
 	<name>web</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
-		<java.version>21</java.version>
+		<!--This is the highest AWS server supported JDK so we have to stay with Java 17-->
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
