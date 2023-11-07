@@ -21,6 +21,9 @@ variables:
     -Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository
     -Dorg.slf4j.simpleLogger.showDateTime=true
     -Djava.awt.headless=true
+  PROD_APPNAME: Project Koopa
+  PROD_ENVNAME: ProjectKoopa-env 
+  PROD_LABEL: '$CI_COMMIT_REF_NAME-$CI_PIPELINE_ID'
 
   # As of Maven 3.3.0 instead of this you MAY define these options in `.mvn/maven.config` so the same config is used
   # when running from the command line.
@@ -64,14 +67,21 @@ cache:
 verify:jdk17:
   extends:
     - .verify
-
-# To deploy packages from CI, create a `ci_settings.xml` file
-# For deploying packages to GitLab's Maven Repository: See https://docs.gitlab.com/ee/user/packages/maven_repository/index.html#create-maven-packages-with-gitlab-cicd for more details.
-# Please note: The GitLab Maven Repository is currently only available in GitLab Premium / Ultimate.
-# For `master` or `main` branch run `mvn deploy` automatically.
-deploy:
-  stage: deploy
+# Deploy to Elastic Beanstalk
+deploy_eb:
   image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
+  stage: deploy
+  environment:
+    name: production
+    url: $PROD_URL
+  when: manual
+  only:
+    - main
   script:
-  - aws create-deployment
-  environment: production
+    - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+    - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+    - aws configure set region $AWS_DEFAULT_REGION
+    - aws elasticbeanstalk create-application-version --application-name $PROD_APPNAME --version-label $PROD_LABEL
+    - aws elasticbeanstalk update-environment --application-name PROD_APPNAME --environment-name $PROD_ENVNAME --version-label $PROD_LABEL
+
+
