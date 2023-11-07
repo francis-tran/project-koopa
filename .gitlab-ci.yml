@@ -60,8 +60,8 @@ cache:
     variables:
       - $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
 
-# Verify merge requests using JDK8
-verify:jdk8:
+# Verify merge requests using JDK17
+verify:jdk17:
   extends:
     - .verify
 
