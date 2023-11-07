@@ -17,20 +17,29 @@ variables:
 
 image: maven:3-openjdk-17
 
+stages:
+  - validate
+  - compile
+  - test
+  - package
+  - verify
+  - deploy_test_env
+  - deploy_prod_env
+
 cache:
   paths:
     - .m2/repository
 
 before_script:
   - 'cd web'
-  
+
 validate:
-  stage: build
+  stage: validate
   script:
     - 'mvn validate'
 
 compile:
-  stage: build
+  stage: compile
   script:
     - 'mvn compile'
 
@@ -40,12 +49,12 @@ test:
     - 'mvn test'
 
 package:
-  stage: build
+  stage: package
   script:
     - 'mvn package'
 
 .verify:
-  stage: build
+  stage: verify
   script:
     - 'mvn $MAVEN_CLI_OPTS verify'
   except:
@@ -58,7 +67,7 @@ verify:jdk17:
 
 deploy_to_test_env_aws_eb:
   image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
-  stage: deploy
+  stage: deploy_test_env
   environment:
     name: test
     url: "http://testkoopa.us-east-2.elasticbeanstalk.com/"
@@ -73,7 +82,7 @@ deploy_to_test_env_aws_eb:
 
 deploy_to_prod_env_aws_eb:
   image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
-  stage: deploy
+  stage: deploy_prod_env
   environment:
     name: production
     url: "http://koopa.us-east-2.elasticbeanstalk.com/"
