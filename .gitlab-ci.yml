@@ -21,8 +21,28 @@ cache:
   paths:
     - .m2/repository
 
-.verify:
+validate:
+  stage: build
+  script:
+    - 'mvn validate'
+
+compile:
+  stage: build
+  script:
+    - 'mvn compile'
+
+test:
   stage: test
+  script:
+    - 'mvn test'
+
+package:
+  stage: build
+  script:
+    - 'mvn package'
+
+.verify:
+  stage: build
   script:
     - 'mvn $MAVEN_CLI_OPTS verify'
   except:
@@ -54,7 +74,6 @@ deploy_to_prod_env_aws_eb:
   environment:
     name: production
     url: "http://koopa.us-east-2.elasticbeanstalk.com/"
-  when: manual
   only:
     - main
   script:
