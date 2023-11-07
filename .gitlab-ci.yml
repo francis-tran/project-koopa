@@ -38,14 +38,14 @@ deploy_eb:
   stage: deploy
   environment:
     name: production
-    url: $PROD_URL
+    url: "http://koopa.us-east-2.elasticbeanstalk.com/"
   only:
     - main
   script:
     - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
     - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
     - aws configure set region $AWS_DEFAULT_REGION
-    - aws elasticbeanstalk create-application-version --application-name "Project Koopa" --version-label "test 1234"
-    - aws elasticbeanstalk update-environment --application-name "Project Koopa" --environment-id "e-vjr3p4vzma" --version-label "test 1234"
+    - aws elasticbeanstalk create-application-version --application-name "Project Koopa" --version-label "test 12345"
+    - aws elasticbeanstalk update-environment --application-name "Project Koopa" --environment-id "e-vjr3p4vzma" --version-label "test 12345"
 
 
