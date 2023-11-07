@@ -26,15 +26,14 @@ cache:
   paths:
     - .m2/repository
 
-.verify:
+verify:
   stage: build_and_test
   script:
     - 'cd web'
     - 'mvn $MAVEN_CLI_OPTS verify'
-
-verify:jdk17:
-  extends:
-    - .verify
+  artifacts:
+    paths:
+      - target/
 
 deploy_to_test_env_aws_eb:
   image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
