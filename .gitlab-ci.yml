@@ -50,6 +50,9 @@ test:
 
 package:
   stage: package
+  cache:
+    paths:
+      - target/
   script:
     - 'mvn package'
 
