@@ -18,11 +18,7 @@ variables:
 image: maven:3-openjdk-17
 
 stages:
-  - validate
-  - compile
-  - test
-  - package
-  - verify
+  - build_and_test
   - deploy_test_env
   - deploy_prod_env
 
@@ -30,34 +26,8 @@ cache:
   paths:
     - .m2/repository
 
-before_script:
-  - 'cd web'
-
-validate:
-  stage: validate
-  script:
-    - 'mvn validate'
-
-compile:
-  stage: compile
-  script:
-    - 'mvn compile'
-
-test:
-  stage: test
-  script:
-    - 'mvn test'
-
-package:
-  stage: package
-  cache:
-    paths:
-      - target/
-  script:
-    - 'mvn package'
-
 .verify:
-  stage: verify
+  stage: build_and_test
   script:
     - 'mvn $MAVEN_CLI_OPTS verify'
   except:
