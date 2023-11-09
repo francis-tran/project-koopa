@@ -14,8 +14,8 @@ variables:
     --no-transfer-progress
     -DinstallAtEnd=true
     -DdeployAtEnd=true
-  S3BUCKET: ''
-  PROD_S3KEY: 'web/target/*.war'
+  S3BUCKET: 'web'
+  PROD_S3KEY: 'target/*.war'
 
 image: maven:3-openjdk-17
 
