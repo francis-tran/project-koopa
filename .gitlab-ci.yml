@@ -52,7 +52,7 @@ deploy_to_test_env_aws_eb:
     - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
     - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
     - aws configure set region $AWS_DEFAULT_REGION
-    - aws s3 cp web/target/$APP_NAME "$S3BUCKET/$APP_NAME"
+    - aws s3 cp "web/target/$APP_NAME" "$S3BUCKET/$APP_NAME"
     - aws elasticbeanstalk create-application-version --application-name "Test Koopa" --version-label "$CI_COMMIT_REF_NAME-$CI_PIPELINE_ID" --source-bundle S3Bucket=$S3BUCKET,S3Key=$APP_NAME
     - aws elasticbeanstalk update-environment --application-name "Test Koopa" --environment-name "TestKoopa-env" --version-label "$CI_COMMIT_REF_NAME-$CI_PIPELINE_ID"
 
