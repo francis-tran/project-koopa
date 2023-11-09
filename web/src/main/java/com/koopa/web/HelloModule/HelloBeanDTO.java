@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 @ToString
 @AllArgsConstructor
 @Component
+// Note: There can be multiple DTOs. It just happens that the HelloBean has one field so only one DTO was created.
 public class HelloBeanDTO {
 
     private String message;

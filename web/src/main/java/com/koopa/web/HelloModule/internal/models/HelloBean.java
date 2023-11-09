@@ -1,4 +1,4 @@
-package com.koopa.web.HelloModule.internal;
+package com.koopa.web.HelloModule.internal.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
