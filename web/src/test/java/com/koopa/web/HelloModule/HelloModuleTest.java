@@ -2,7 +2,6 @@ package com.koopa.web.HelloModule;
 
 import com.koopa.web.WebApplication;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestReporter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.modulith.core.ApplicationModules;
@@ -20,8 +19,6 @@ class HelloModuleTest {
     @Test
     void createApplicationModuleModel() {
         modules.forEach(System.out::println);
-        logger.info("TESTING 123 HELLO");
-        TestReporter testReporter = new TestReporter();
     }
 
     @Test
