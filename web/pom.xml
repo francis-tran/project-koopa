@@ -88,6 +88,13 @@
 				<!-- Find the latest version at https://github.com/jhipster/prettier-java/releases -->
 				<version>2.3.1</version>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<properties>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</properties>
+			</plugin>
 		</plugins>
 	</build>
 </project>
