@@ -18,7 +18,6 @@
 	<properties>
 		<!--This is the highest AWS server supported JDK so we have to stay with Java 17-->
 		<java.version>17</java.version>
-		<failOnMissingWebXml>false</failOnMissingWebXml>
 	</properties>
 	<dependencies>
 		<dependency>
