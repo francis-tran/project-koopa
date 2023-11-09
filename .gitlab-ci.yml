@@ -66,7 +66,7 @@ deploy_to_prod_env_aws_eb:
     - main
   artifacts:
     paths:
-      - web/target/*.war
+      - web/target/$APP_NAME
   script:
     - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
     - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
