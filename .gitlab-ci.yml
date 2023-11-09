@@ -15,7 +15,7 @@ variables:
     -DinstallAtEnd=true
     -DdeployAtEnd=true
   APP_NAME: 'web-0.0.1-SNAPSHOT.war'
-  S3BUCKET: 'S3://elasticbeanstalk-us-east-2-740953852421'
+  S3BUCKET: 's3://elasticbeanstalk-us-east-2-740953852421'
 
 image: maven:3-openjdk-17
 
