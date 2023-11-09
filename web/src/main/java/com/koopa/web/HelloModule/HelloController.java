@@ -1,4 +1,4 @@
-package com.koopa.web;
+package com.koopa.web.HelloModule;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
