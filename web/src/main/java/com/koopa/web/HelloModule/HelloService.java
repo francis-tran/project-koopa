@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 // Source: https://spring.io/quickstart
 @RestController
-public class HelloController {
+public class HelloService {
 
     @GetMapping("/")
     public String index(
