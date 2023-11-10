@@ -11,8 +11,12 @@ public class SomeClass {
 
     private String test;
 
+    private HelloExternalAPI api;
+
+    // We inject the dependency into the constructor
     public SomeClass(@Qualifier("helloController") HelloExternalAPI api) {
         test = "" + api.getClass();
+        this.api = api;
     }
 
     @GetMapping(value = "/test")
