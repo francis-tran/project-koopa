@@ -13,7 +13,7 @@ import reactor.core.publisher.Mono;
 public class HelloController implements HelloInternalAPI, HelloExternalAPI {
 
     @Autowired
-    @Qualifier("HelloServiceImpl")
+    @Qualifier("helloServiceImpl")
     private HelloService helloService;
 
     // We expose HelloExternalAPI's methods such as this one

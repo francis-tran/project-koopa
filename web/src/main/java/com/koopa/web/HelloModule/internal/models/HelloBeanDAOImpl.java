@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-@Component("HelloBeanDAOImpl")
+@Component
 public class HelloBeanDAOImpl implements HelloBeanDAO {
 
     public boolean add(HelloBean o) {

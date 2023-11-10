@@ -5,7 +5,7 @@ import com.koopa.web.HelloModule.internal.models.HelloBean;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 
-@Component("HelloMapperImpl")
+@Component
 public class HelloMapperImpl implements HelloMapper {
 
     public Mono<HelloBean> helloBeanDTOMapToHelloBean(Mono<HelloBeanDTO> obj) {

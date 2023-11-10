@@ -4,14 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-@Service("HelloServiceImpl")
+@Service
 public class HelloServiceImpl implements HelloService {
 
     @Autowired
-    @Qualifier("HelloRepositoryImpl")
+    @Qualifier("helloRepositoryImpl")
     private HelloRepository helloRepository;
 
     @Autowired
-    @Qualifier("HelloMapperImpl")
+    @Qualifier("helloMapperImpl")
     private HelloMapper helloMapper;
 }
