@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 // This class is responsible for communicating with the database via SQL query or ORM
-@Repository
+@Repository("HelloRepositoryImpl")
 public class HelloRepositoryImpl implements HelloRepository {
 
     @Autowired

@@ -1,8 +1,10 @@
 package com.koopa.web.HelloModule.internal.models;
 
+import org.springframework.stereotype.Component;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+@Component("HelloBeanDAOImpl")
 public class HelloBeanDAOImpl implements HelloBeanDAO {
 
     public boolean add(HelloBean o) {
