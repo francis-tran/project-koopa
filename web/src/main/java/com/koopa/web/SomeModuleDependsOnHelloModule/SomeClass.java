@@ -14,7 +14,7 @@ public class SomeClass {
     private HelloExternalAPI api;
 
     // We inject the dependency into the constructor
-    public SomeClass(@Qualifier("helloController") HelloExternalAPI api) {
+    public SomeClass(@Qualifier("helloControllerImpl") HelloExternalAPI api) {
         test = "" + api.getClass();
         this.api = api;
     }
