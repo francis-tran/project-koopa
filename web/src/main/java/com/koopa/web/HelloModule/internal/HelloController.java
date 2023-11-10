@@ -1,6 +1,7 @@
 package com.koopa.web.HelloModule.internal;
 
 import com.koopa.web.HelloModule.HelloExternalAPI;
+import com.koopa.web.HelloModule.HelloInternalAPI;
 import com.koopa.web.HelloModule.internal.models.HelloBean;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
