@@ -1,20 +1,17 @@
 package com.koopa.web.HelloModule.internal;
 
 import com.koopa.web.HelloModule.internal.models.HelloBean;
-import org.springframework.http.MediaType;
-import org.springframework.stereotype.Component;
-import org.springframework.web.reactive.function.BodyInserters;
-import org.springframework.web.reactive.function.server.ServerRequest;
-import org.springframework.web.reactive.function.server.ServerResponse;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 
-@Component
+// https://www.baeldung.com/spring-webflux
+// https://howtodoinjava.com/spring-webflux/spring-webflux-tutorial/
+@RestController
 public class HelloController {
 
-    public Mono<ServerResponse> hello(ServerRequest request) {
-        return ServerResponse
-            .ok()
-            .contentType(MediaType.APPLICATION_JSON)
-            .body(BodyInserters.fromValue(new HelloBean("Hello World!")));
+    @GetMapping(value = "/hello")
+    public Mono<HelloBean> hello() {
+        return Mono.just(new HelloBean("Hello World!"));
     }
 }
