@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+    <title>Reactive SW-API</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../static/style.css" th:href="@{/style.css}" type="text/css"/>
+  </head>
+
+  <body>
+    <div class="container">
+
+        <div class="row">
+            <div id="title">
+                <h1>Spring WebFlux + Thymeleaf</h1>
+            </div>
+            <table class="table table-striped" id="allMessages">
+                <thead>
+                <tr>
+                    <th width="70%">Message</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="result" data-th-each="callItAnythingYouWant : ${messages}">
+                    <td>[[${callItAnythingYouWant.message}]]</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    
+    </div>
+    
+  </body>
+
+</html>
