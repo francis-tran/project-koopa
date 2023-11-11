@@ -14,7 +14,9 @@ Each time a pull request is approved and merged, it will trigger the CI/CD pipel
 
 ## Design
 
-**Project Structure:** A certain structure is enforced by Maven + Modulith
+**Project Structure:**
+
+A certain structure is enforced by Maven + Modulith
 
 **Java Module blueprint:**
 
