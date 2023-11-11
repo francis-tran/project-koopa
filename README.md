@@ -14,9 +14,9 @@ Each time a pull request is approved and merged, it will trigger the CI/CD pipel
 
 ## Design
 
-Project Structure: A certain structure is enforced by Maven + Modulith
+**Project Structure:** A certain structure is enforced by Maven + Modulith
 
-Java Module blueprint:
+**Java Module blueprint:**
 
 -   internal (interface + concrete implementation)
 
@@ -37,14 +37,14 @@ Java Module blueprint:
     1.  Unit tests
     2.  Integration tests
 
-Spring Dependencies:
+**Spring Dependencies:**
 
 1. Webflux (Asynchronous + functional programming)
 2. Modulith
 3. GraphQL
 4. Lombok
 
-React:
+**React:**
 Can be found in /web/src/main/frontend
 
 IGNORE THE REST OF THE BELOW (I'm keeping it for notes)
