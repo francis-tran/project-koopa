@@ -1,0 +1,7 @@
+type HelloBeanDTO {
+    message: String!
+}
+
+type Query {
+    getHelloMessage: HelloBeanDTO!
+}
