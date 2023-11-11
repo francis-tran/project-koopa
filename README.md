@@ -45,9 +45,10 @@ Each time a pull request is approved and merged, it will trigger the CI/CD pipel
 4. Lombok
 
 **React:**
+
 Can be found in /web/src/main/frontend
 
-IGNORE THE REST OF THE BELOW (I'm keeping it for notes)
+# IGNORE THE REST OF THE BELOW (I'm keeping it for notes)
 
 ---
 
