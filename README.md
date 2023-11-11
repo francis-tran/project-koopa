@@ -20,7 +20,7 @@ A certain structure is enforced by Maven + Modulith
 
 **Java Module blueprint:**
 
--   internal (interface + concrete implementation)
+-   Internal (interface + concrete implementation)
 
     1.  Controller (Exposes REST or GraphQL endpoints and implements both External and Internal API)
     2.  Service (Business logic to serve to controller)
@@ -29,13 +29,13 @@ A certain structure is enforced by Maven + Modulith
     5.  DAO (Communicate directly with database)
     6.  Bean (Java representation of database object)
 
--   external
+-   External
 
     1.  External API (Methods that are exposed to the public so anyone can use)
     2.  Internal API (Methods that are exposed to other internal modules)
     3.  DTO (Each DTO can fully or partially be an internal Bean)
 
--   tests
+-   JUnit tests
     1.  Unit tests
     2.  Integration tests
 
@@ -49,6 +49,14 @@ A certain structure is enforced by Maven + Modulith
 **React:**
 
 Can be found in /web/src/main/frontend
+
+Go to command prompt, cd into dir, and execute "npm start" to launch frontend service for development purposes
+
+Unit testing: Jest
+
+Integration testing: Jest
+
+E2E testing: Playwright
 
 # IGNORE THE REST OF THE BELOW (I'm keeping it for notes)
 
