@@ -35,9 +35,10 @@ A certain structure is enforced by Maven + Modulith
     2.  Internal API (Methods that are exposed to other internal modules)
     3.  DTO (Each DTO can fully or partially be an internal Bean)
 
--   JUnit tests
+-   JUnit Tests
     1.  Unit tests
-    2.  Integration tests
+    2.  Integration tests (WebTestClient)
+    3.  End to end and single API tests (WebTestClient)
 
 **Spring Dependencies:**
 
