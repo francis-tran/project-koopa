@@ -5,6 +5,7 @@ import com.koopa.web.HelloModule.internal.models.HelloBean;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 
+// Test comment for merge request
 @Component
 public class HelloMapperImpl implements HelloMapper {
 
