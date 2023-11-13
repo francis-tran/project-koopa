@@ -33,9 +33,6 @@ build_and_test:
   script:
     - 'cd web'
     - 'mvn $MAVEN_CLI_OPTS clean verify'
-  artifacts:
-    paths:
-      - web/target/$APP_NAME
 
 deploy_to_test_env_aws_eb:
   image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
@@ -43,11 +40,6 @@ deploy_to_test_env_aws_eb:
   environment:
     name: test
     url: "http://testkoopa.us-east-2.elasticbeanstalk.com/"
-  only:
-    - main
-  artifacts:
-    paths:
-      - web/target/$APP_NAME
   script:
     - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
     - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
@@ -62,11 +54,6 @@ deploy_to_prod_env_aws_eb:
   environment:
     name: production
     url: "http://koopa.us-east-2.elasticbeanstalk.com/"
-  only:
-    - main
-  artifacts:
-    paths:
-      - web/target/$APP_NAME
   script:
     - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
     - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
