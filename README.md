@@ -1,4 +1,5 @@
-# Project Koopa
+# Project Koopa (WIP)
+It is very barebones right now. Features will be slowly added.
 
 ## Getting started
 
@@ -14,7 +15,7 @@ Each time a pull request is approved and merged, it will trigger the CI/CD pipel
 
 ## Design
 
-Code Architecture:
+**Code Architecture:**
 
 Microservices with a Monorepository
 
@@ -31,10 +32,13 @@ Current services:
 
 A certain structure is enforced by Maven + Modulith
 
-**Java Module blueprint:**
+**Java Module Information**
 
 Every module will communicate to its dependent services via HTTP using WebClient. WebClient is a reactive and non-blocking solution. Reactive programming is a programming paradigm where the focus is on developing asynchronous and non-blocking components. The core of reactive programming is a data stream that we can observe and react to, and even apply back pressure to as well. This leads to non-blocking execution, and better scalability with fewer threads of execution.
+
 https://www.baeldung.com/java-reactive-systems
+
+**Java Module blueprint:**
 
 -   Internal (interface + concrete implementation)
 
