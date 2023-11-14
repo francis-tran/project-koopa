@@ -1,4 +1,5 @@
-# Project Koopa
+# Project Koopa (WIP)
+It is very barebones right now. Features will be slowly added.
 
 ## Getting started
 
